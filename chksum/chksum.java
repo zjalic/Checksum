@@ -1,7 +1,9 @@
 package chksum;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -16,6 +18,24 @@ public class chksum extends javax.swing.JFrame {
     String hash1, hash2, hash3;
     static String komentar;
     MessageDigest digest;
+    
+    public static String getFileChecksumOld(MessageDigest md, File file){
+        try {
+            InputStream is = new FileInputStream(file);
+            byte[] buffer = new byte[1024]; 
+            int len;
+            while ((len = is.read(buffer)) != -1) {
+                md.update(buffer, 0, len); 
+            }
+            byte[] digest = md.digest();
+
+            return DatatypeConverter.printHexBinary(digest);
+            
+        } catch (IOException ex) {
+            Logger.getLogger(chksum.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        return null;
+    }
     
     private static String getFileChecksum(MessageDigest md, File file) {
         
