@@ -16,10 +16,9 @@ public class chksum extends javax.swing.JFrame {
 
     File file1, file2, file3;
     String hash1, hash2, hash3;
-    static String komentar;
     MessageDigest digest;
     
-    public static String getFileChecksumOld(MessageDigest md, File file){
+    public static String getFileChecksum(MessageDigest md, File file){
         try {
             InputStream is = new FileInputStream(file);
             byte[] buffer = new byte[1024]; 
@@ -37,7 +36,7 @@ public class chksum extends javax.swing.JFrame {
         return null;
     }
     
-    private static String getFileChecksum(MessageDigest md, File file) {
+    private static String getFileChecksumOld(MessageDigest md, File file) {
         
         try {
             md.update(Files.readAllBytes(file.toPath()));
@@ -99,6 +98,7 @@ public class chksum extends javax.swing.JFrame {
         jHash3 = new javax.swing.JTextField();
         jStatus1 = new javax.swing.JLabel();
         jStatus2 = new javax.swing.JLabel();
+        jStatusLoading = new javax.swing.JLabel();
 
         jTextField1.setText("jTextField1");
 
@@ -196,6 +196,9 @@ public class chksum extends javax.swing.JFrame {
         jStatus2.setFont(new java.awt.Font("Courier New", 0, 11)); // NOI18N
         jStatus2.setText("         ");
 
+        jStatusLoading.setFont(new java.awt.Font("Courier New", 0, 11)); // NOI18N
+        jStatusLoading.setText("         ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -268,6 +271,10 @@ public class chksum extends javax.swing.JFrame {
                                 .addComponent(jLabel4)))
                         .addGap(0, 201, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(jStatusLoading, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(210, 210, 210))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -320,7 +327,9 @@ public class chksum extends javax.swing.JFrame {
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jHash3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(103, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jStatusLoading, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         pack();
@@ -402,7 +411,7 @@ public class chksum extends javax.swing.JFrame {
     }//GEN-LAST:event_jHashFunckija2ActionPerformed
 
     private void jIzracunajHash2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jIzracunajHash2ActionPerformed
-
+        
         try {
             
             String hashfun = jHashFunckija2.getSelectedItem().toString();
@@ -425,7 +434,6 @@ public class chksum extends javax.swing.JFrame {
             String hashfun = jHashFunckija2.getSelectedItem().toString();
             jHash3.setText(hash3);
         }
-
     }//GEN-LAST:event_jIzracunajHash2ActionPerformed
 
     /**
@@ -493,6 +501,7 @@ public class chksum extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JLabel jStatus1;
     private javax.swing.JLabel jStatus2;
+    private javax.swing.JLabel jStatusLoading;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jfilePath2;
     private javax.swing.JButton jfileSelect1;
