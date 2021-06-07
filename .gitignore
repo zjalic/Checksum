@@ -1,5 +1,3 @@
 ./nbproject/private/
 /build/
-/Checker/nbproject/private/
-/Checker/build/
-/Checker/dist/
+/dist/
