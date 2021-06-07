@@ -19,7 +19,7 @@
 * [CheckSum.tar.gz](https://github.com/zjalic/CheckSum/archive/refs/tags/v1.0.0.tar.gz) (source)
 
 
-[release-shield]: https://img.shields.io/badge/version-v1.0.1-brightgreen
+[release-shield]: https://img.shields.io/badge/version-v1.0.0-brightgreen
 [release-url]: https://github.com/zjalic/CheckSum/releases/tag/v1.0.0
 [download-shield]: https://img.shields.io/badge/download-app-blue
 [download-url]: https://github.com/zjalic/CheckSum/releases/download/v1.0.0/CheckSum.jar
