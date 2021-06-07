@@ -1,4 +1,4 @@
-package chksum;
+package checksum;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.xml.bind.DatatypeConverter;
 
-public class chksum extends javax.swing.JFrame {
+public class Checksum extends javax.swing.JFrame {
 
     File file1, file2, file3;
     String hash1, hash2, hash3;
@@ -31,7 +31,7 @@ public class chksum extends javax.swing.JFrame {
             return DatatypeConverter.printHexBinary(digest);
             
         } catch (IOException ex) {
-            Logger.getLogger(chksum.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Checksum.class.getName()).log(Level.SEVERE, null, ex);
         } 
         return null;
     }
@@ -40,7 +40,7 @@ public class chksum extends javax.swing.JFrame {
         
         try {
             md.update(Files.readAllBytes(file.toPath()));
-        } catch (IOException ex) { Logger.getLogger(chksum.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) { Logger.getLogger(Checksum.class.getName()).log(Level.SEVERE, null, ex);
         }
         byte[] digest = md.digest();
         
@@ -49,7 +49,7 @@ public class chksum extends javax.swing.JFrame {
 
 }
 
-    public chksum() {
+    public Checksum() {
         initComponents();
         jHash1.setEditable(false);
         jHash2.setEditable(false);
@@ -229,8 +229,7 @@ public class chksum extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jStatus1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jStatus1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jHash1, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jSeparator2)
@@ -262,17 +261,13 @@ public class chksum extends javax.swing.JFrame {
                             .addComponent(jHash3, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jSeparator4)))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(136, 136, 136)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(136, 136, 136)
-                                .addComponent(jLabel3))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(136, 136, 136)
-                                .addComponent(jLabel4)))
-                        .addGap(0, 201, Short.MAX_VALUE)))
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
+                        .addGap(0, 189, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, 0)
                 .addComponent(jStatusLoading, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(210, 210, 210))
         );
@@ -329,7 +324,7 @@ public class chksum extends javax.swing.JFrame {
                 .addComponent(jHash3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jStatusLoading, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         pack();
@@ -385,7 +380,7 @@ public class chksum extends javax.swing.JFrame {
             jHash2.setText(hash2);
             
         } catch (NoSuchAlgorithmException ex) {
-            Logger.getLogger(chksum.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Checksum.class.getName()).log(Level.SEVERE, null, ex);
 
         }
     }//GEN-LAST:event_jIzracunajHashActionPerformed
@@ -429,7 +424,7 @@ public class chksum extends javax.swing.JFrame {
             jHash3.setText(hash3);
             
         } catch (NoSuchAlgorithmException ex) {
-            Logger.getLogger(chksum.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Checksum.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception e) {
             String hashfun = jHashFunckija2.getSelectedItem().toString();
             jHash3.setText(hash3);
@@ -453,20 +448,21 @@ public class chksum extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(chksum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Checksum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(chksum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Checksum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(chksum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Checksum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(chksum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Checksum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new chksum().setVisible(true);
+                new Checksum().setVisible(true);
             }
         });
     }
