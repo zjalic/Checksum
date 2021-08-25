@@ -14,7 +14,7 @@ import javax.xml.bind.DatatypeConverter;
 
 public class Checksum extends javax.swing.JFrame {
 
-    File file1, file2, file3;
+    File file1, file2, file3, file4, folder1 ;
     String hash1, hash2, hash3;
     MessageDigest digest;
     
@@ -47,7 +47,17 @@ public class Checksum extends javax.swing.JFrame {
         String res = DatatypeConverter.printHexBinary(digest) ;
         return res;
 
-}
+    }
+    
+    public static boolean checkStructure(){
+        
+        return false;
+    }
+    
+    public static boolean createCheckSumStructure(){
+        
+        return false;
+    }
 
     public Checksum() {
         initComponents();
@@ -98,7 +108,18 @@ public class Checksum extends javax.swing.JFrame {
         jHash3 = new javax.swing.JTextField();
         jStatus1 = new javax.swing.JLabel();
         jStatus2 = new javax.swing.JLabel();
-        jStatusLoading = new javax.swing.JLabel();
+        jSeparator9 = new javax.swing.JSeparator();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jFolderSelect1 = new javax.swing.JButton();
+        JFolderPath2 = new javax.swing.JTextField();
+        jSeparator10 = new javax.swing.JSeparator();
+        jLabel11 = new javax.swing.JLabel();
+        jStatusFolder2 = new javax.swing.JLabel();
+        jFileSelect4 = new javax.swing.JButton();
+        JFolderPath1 = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jStatusFolder1 = new javax.swing.JLabel();
 
         jTextField1.setText("jTextField1");
 
@@ -196,8 +217,37 @@ public class Checksum extends javax.swing.JFrame {
         jStatus2.setFont(new java.awt.Font("Courier New", 0, 11)); // NOI18N
         jStatus2.setText("         ");
 
-        jStatusLoading.setFont(new java.awt.Font("Courier New", 0, 11)); // NOI18N
-        jStatusLoading.setText("         ");
+        jLabel9.setFont(new java.awt.Font("Courier New", 1, 14)); // NOI18N
+        jLabel9.setText("Create Structure Check Sum:");
+
+        jLabel10.setFont(new java.awt.Font("Courier New", 1, 14)); // NOI18N
+        jLabel10.setText("Verify Structure Check Sum:");
+
+        jFolderSelect1.setText("Folder Select");
+        jFolderSelect1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFolderSelect1ActionPerformed(evt);
+            }
+        });
+
+        jLabel11.setFont(new java.awt.Font("Courier New", 0, 11)); // NOI18N
+        jLabel11.setText("Status:");
+
+        jStatusFolder2.setFont(new java.awt.Font("Courier New", 0, 11)); // NOI18N
+        jStatusFolder2.setText("         ");
+
+        jFileSelect4.setText("File Select");
+        jFileSelect4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFileSelect4ActionPerformed(evt);
+            }
+        });
+
+        jLabel12.setFont(new java.awt.Font("Courier New", 0, 11)); // NOI18N
+        jLabel12.setText("Status:");
+
+        jStatusFolder1.setFont(new java.awt.Font("Courier New", 0, 11)); // NOI18N
+        jStatusFolder1.setText("         ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -254,7 +304,7 @@ public class Checksum extends javax.swing.JFrame {
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jStatus2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                                .addGap(0, 88, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -265,11 +315,48 @@ public class Checksum extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel4))
-                        .addGap(0, 189, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(12, 12, 12))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator9)
+                    .addComponent(jSeparator10))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(136, 136, 136)
+                        .addComponent(jLabel9))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jFolderSelect1)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(JFolderPath1))))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jFileSelect4)
+                .addGap(18, 18, 18)
+                .addComponent(JFolderPath2)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jStatusLoading, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(210, 210, 210))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jStatusFolder1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(109, 109, 109))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jStatusFolder2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(106, 106, 106))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -323,8 +410,30 @@ public class Checksum extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jHash3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jStatusLoading, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel9)
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jFolderSelect1)
+                    .addComponent(JFolderPath1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(jStatusFolder1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
+                .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel10)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jFileSelect4)
+                    .addComponent(JFolderPath2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(jStatusFolder2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pack();
@@ -342,7 +451,6 @@ public class Checksum extends javax.swing.JFrame {
     }//GEN-LAST:event_jfileSelect1ActionPerformed
 
     private void jfileSelect2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jfileSelect2ActionPerformed
-
         JFileChooser jfc = new JFileChooser();
         int returnValue = jfc.showOpenDialog(null);
 
@@ -350,7 +458,6 @@ public class Checksum extends javax.swing.JFrame {
             file2 = jfc.getSelectedFile();
             jfilePath2.setText(file2.getAbsolutePath());
         }
-
     }//GEN-LAST:event_jfileSelect2ActionPerformed
 
     private void jFilePath1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFilePath1ActionPerformed
@@ -389,16 +496,11 @@ public class Checksum extends javax.swing.JFrame {
        // File3
         JFileChooser jfc = new JFileChooser();
         int returnValue = jfc.showOpenDialog(null);
-        // int returnValue = jfc.showSaveDialog(null);
 
         if (returnValue == JFileChooser.APPROVE_OPTION) {
             file3 = jfc.getSelectedFile();
             JFilePath3.setText(file3.getAbsolutePath());
-      
         }
-        
-        
-        
     }//GEN-LAST:event_jFileSelect3ActionPerformed
 
     private void jHashFunckija2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jHashFunckija2ActionPerformed
@@ -406,9 +508,7 @@ public class Checksum extends javax.swing.JFrame {
     }//GEN-LAST:event_jHashFunckija2ActionPerformed
 
     private void jIzracunajHash2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jIzracunajHash2ActionPerformed
-        
         try {
-            
             String hashfun = jHashFunckija2.getSelectedItem().toString();
             
             MessageDigest digest = MessageDigest.getInstance(hashfun);
@@ -430,6 +530,31 @@ public class Checksum extends javax.swing.JFrame {
             jHash3.setText(hash3);
         }
     }//GEN-LAST:event_jIzracunajHash2ActionPerformed
+
+    private void jFolderSelect1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFolderSelect1ActionPerformed
+       // Folder1
+        JFileChooser jfc = new JFileChooser();
+        jfc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        int returnValue = jfc.showOpenDialog(null);
+
+        if (returnValue == JFileChooser.APPROVE_OPTION) {
+            folder1 = jfc.getSelectedFile();
+            JFolderPath1.setText(folder1.getAbsolutePath());
+        }
+        createCheckSumStructure();
+    }//GEN-LAST:event_jFolderSelect1ActionPerformed
+
+    private void jFileSelect4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFileSelect4ActionPerformed
+        // file4
+        JFileChooser jfc = new JFileChooser();
+        int returnValue = jfc.showOpenDialog(null);
+
+        if (returnValue == JFileChooser.APPROVE_OPTION) {
+            file4 = jfc.getSelectedFile();
+            JFolderPath2.setText(file4.getAbsolutePath());
+        }
+        checkStructure();
+    }//GEN-LAST:event_jFileSelect4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -469,8 +594,12 @@ public class Checksum extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField JFilePath3;
+    private javax.swing.JTextField JFolderPath1;
+    private javax.swing.JTextField JFolderPath2;
     private javax.swing.JTextField jFilePath1;
     private javax.swing.JButton jFileSelect3;
+    private javax.swing.JButton jFileSelect4;
+    private javax.swing.JButton jFolderSelect1;
     private javax.swing.JTextField jHash1;
     private javax.swing.JTextField jHash2;
     private javax.swing.JTextField jHash3;
@@ -480,6 +609,9 @@ public class Checksum extends javax.swing.JFrame {
     private javax.swing.JButton jIzracunajHash;
     private javax.swing.JButton jIzracunajHash2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -487,7 +619,9 @@ public class Checksum extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
@@ -495,9 +629,11 @@ public class Checksum extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JSeparator jSeparator9;
     private javax.swing.JLabel jStatus1;
     private javax.swing.JLabel jStatus2;
-    private javax.swing.JLabel jStatusLoading;
+    private javax.swing.JLabel jStatusFolder1;
+    private javax.swing.JLabel jStatusFolder2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jfilePath2;
     private javax.swing.JButton jfileSelect1;
